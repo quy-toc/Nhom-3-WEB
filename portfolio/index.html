@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio của Dắn Hiền Phục - sinh viên CNTT UTH, định hướng Software Developer">
+  <title>Dắn Hiền Phục | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="layout">
+
+    <!-- ===== SIDEBAR (banner giới thiệu) ===== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar__top">
+        <h1 class="sidebar__name">Dắn<br>Hiền<br>Phục</h1>
+        <p class="sidebar__role">Lập trình viên</p>
+        <p class="sidebar__sub">Sinh viên năm 4 • Software Developer</p>
+        <img class="avatar" src="images/avarta.jpg" alt="Ảnh đại diện của Dắn Hiền Phục" width="130" height="130">
+      </div>
+
+      <section class="side-block" aria-labelledby="contactTitle">
+        <h2 class="side-title" id="contactTitle">▣ Liên hệ</h2>
+        <ul class="side-contact">
+          <li>📞 <a href="tel:0382062975">0382062975</a></li>
+          <li>✉️ <a href="mailto:phucdh1971@ut.edu.vn">:phucdh1971@ut.edu.vn</a></li>
+          <li>🐙 <a href="https://github.com/:phucdh1971@ut.edu.vn-rgb" target="_blank" rel="noopener">github.com/phucdh1971@ut.edu.vn-rgb</a></li>
+          <li>📍 15/47 Cô Bắc phường Cầu Ông Lãnh Q1 thành phố Hồ Chí Minh</li>
+        </ul
+      </section>
+
+      <section class="side-block" id="skills" aria-labelledby="skillTitle">
+        <h2 class="side-title" id="skillTitle">&lt;/&gt; Kỹ năng</h2>
+        <div class="skill"><div class="skill__head"><span>Python (AI / Machine Learning)</span><span>75%</span></div><div class="bar"><div class="bar__fill" data-level="75"></div></div></div>
+        <div class="skill"><div class="skill__head"><span>Java (OOP)</span><span>65%</span></div><div class="bar"><div class="bar__fill" data-level="65"></div></div></div>
+        <div class="skill"><div class="skill__head"><span>SQL / CSDL</span><span>75%</span></div><div class="bar"><div class="bar__fill" data-level="75"></div></div></div>
+        <div class="skill"><div class="skill__head"><span>HTML5 / CSS3</span><span>70%</span></div><div class="bar"><div class="bar__fill" data-level="70"></div></div></div>
+        <div class="skill"><div class="skill__head"><span>JavaScript (DOM, Event)</span><span>65%</span></div><div class="bar"><div class="bar__fill" data-level="65"></div></div></div>
+      </section>
+
+      <section class="side-block" aria-labelledby="orientTitle">
+        <h2 class="side-title" id="orientTitle">◉ Định hướng</h2>
+        <ul class="side-list">
+          <li>Trở thành Lập trình viên phần mềm chuyên nghiệp (Software Developer).</li>
+          <li>Ứng dụng Trí tuệ nhân tạo (AI/Machine Learning) vào bài toán thực tiễn.</li>
+          <li>Nâng cao kỹ năng phát triển Web Frontend và Full-stack.</li>
+        </ul>
+      </section>
+    </aside>
+
+    <!-- ===== CỘT NỘI DUNG ===== -->
+    <div class="content">
+      <header class="header" id="header">
+        <nav class="nav" aria-label="Điều hướng chính">
+          <a href="#about" class="logo">Phục<span>.dev</span></a>
+          <ul class="nav__menu" id="navMenu">
+            <li><a href="#about" class="nav__link">Giới thiệu</a></li>
+            <li><a href="#goal" class="nav__link">Mục tiêu</a></li>
+            <li><a href="#education" class="nav__link">Học vấn</a></li>
+            <li><a href="#projects" class="nav__link">Dự án</a></li>
+            <li><a href="#contact" class="nav__link">Liên hệ</a></li>
+          </ul>
+          <div class="nav__actions">
+            <button class="icon-btn" id="themeToggle" aria-label="Chuyển chế độ sáng/tối">🌙</button>
+            <button class="icon-btn nav__burger" id="burger" aria-label="Mở menu" aria-expanded="false">☰</button>
+          </div>
+        </nav>
+      </header>
+
+      <main class="main">
+        <!-- GIỚI THIỆU -->
+        <section class="block" id="about">
+          <h2 class="block__title">Giới thiệu bản thân</h2>
+          <p class="intro">Xin chào, mình là <strong>Dắn Hiền Phục</strong> – <span id="typed" class="typed"></span><span class="cursor">|</span></p>
+          <p>Mình là sinh viên ngành Công nghệ Thông tin, yêu thích lập trình, trí tuệ nhân tạo và xây dựng giao diện web. Mình thích biến kiến thức trên lớp thành những sản phẩm chạy được.</p>
+        </section>
+
+        <!-- MỤC TIÊU -->
+        <section class="block" id="goal">
+          <h2 class="block__title">Mục tiêu nghề nghiệp</h2>
+          <blockquote class="goal">
+            Là sinh viên năm 4 chuyên ngành <strong>Công nghệ thông tin</strong> tại Đại học Giao thông Vận tải TP.HCM (UTH). Mong muốn vận dụng tư duy lập trình vững chắc về <strong>Python, Trí tuệ nhân tạo (AI), Java, Frontend (HTML, CSS)</strong> và thiết kế cơ sở dữ liệu <strong>SQL</strong> vào các bài toán thực tế. Định hướng trở thành <strong>Lập trình viên phần mềm (Software Developer)</strong> chuyên nghiệp.
+          </blockquote>
+        </section>
+
+        <!-- HỌC VẤN -->
+        <section class="block" id="education">
+          <h2 class="block__title">Học vấn</h2>
+          <article class="card">
+            <div class="card__head">
+              <h3>Sinh viên Chuyên ngành Công nghệ Thông tin</h3>
+              <span class="badge">2023 — Hiện tại</span>
+            </div>
+            <p class="muted">🏛 Trường Đại học Giao thông Vận tải TP. HCM (UTH)</p>
+            <ul>
+              <li>Chuyên sâu: Trí tuệ nhân tạo, Lập trình Java, Python, Cấu trúc dữ liệu &amp; Giải thuật, Hệ quản trị CSDL SQL.</li>
+              <li>Phân tích thiết kế hệ thống thông tin, xây dựng giao diện ứng dụng.</li>
+            </ul>
+          </article>
+
+          <h3 class="sub-title">Chứng chỉ / Giải thưởng / Sở thích</h3>
+          <div class="extras">
+            <article class="card"><h4>🏆 Chứng chỉ</h4><p>Chưa có</p></article>
+            <article class="card"><h4>🎖️ Giải thưởng</h4><p>Chưa có</p></article>
+            <article class="card"><h4>🎯 Sở thích</h4><p>Lập trình, tìm hiểu AI, xây dựng giao diện web.</p></article>
+          </div>
+        </section>
+
+        <!-- DỰ ÁN -->
+        <section class="block" id="projects">
+          <h2 class="block__title">Dự án nổi bật</h2>
+          <div class="filters" role="group" aria-label="Lọc dự án">
+            <button class="filter is-active" data-filter="all">Tất cả</button>
+            <button class="filter" data-filter="ai">AI</button>
+            <button class="filter" data-filter="data">CSDL</button>
+            <button class="filter" data-filter="web">Web</button>
+          </div>
+
+          <div class="projects" id="projectGrid">
+            <article class="project card" data-category="ai" data-id="spam">
+              <div class="card__head">
+                <h3>Hệ thống Phát hiện &amp; Phân loại Spam (AI Spam Classifier)</h3>
+                <span class="badge">2023</span>
+              </div>
+              <p class="muted">🧠 Đồ án môn Trí tuệ Nhân tạo (AI)</p>
+              <ul>
+                <li>Tiền xử lý tập dữ liệu văn bản tin nhắn/email: làm sạch, chuẩn hóa từ (Tokenization), loại bỏ stopwords và vector hóa (TF-IDF / Bag of Words).</li>
+                <li>Huấn luyện Naive Bayes, SVM, Logistic Regression để phân loại tin nhắn rác (Spam) và hợp lệ (Ham).</li>
+                <li>Đánh giá bằng Confusion Matrix, Precision, Recall và tối ưu hiệu năng.</li>
+              </ul>
+              <ul class="tags"><li>AI / Machine Learning</li><li>Python</li><li>Scikit-learn</li><li>NLP</li></ul>
+              <button class="btn btn--small js-detail">Xem chi tiết</button>
+            </article>
+
+            <article class="project card" data-category="data" data-id="student">
+              <div class="card__head">
+                <h3>Hệ thống Quản lý Sinh viên &amp; Điểm danh</h3>
+                <span class="badge">2023</span>
+              </div>
+              <p class="muted">👥 Đồ án Lập trình Ứng dụng &amp; CSDL</p>
+              <ul>
+                <li>Thiết kế cơ sở dữ liệu quan hệ (SQL) lưu trữ dữ liệu lớp học, sinh viên và lịch sử điểm danh.</li>
+                <li>Xây dựng nghiệp vụ quản lý: thêm, sửa, xóa, tìm kiếm và tạo danh sách điểm danh tự động.</li>
+                <li>Xử lý logic backend bằng Python/Java, tối ưu hóa truy vấn dữ liệu.</li>
+              </ul>
+              <ul class="tags"><li>SQL</li><li>Python</li><li>Java</li></ul>
+              <button class="btn btn--small js-detail">Xem chi tiết</button>
+            </article>
+
+            <article class="project card" data-category="web" data-id="bookstore">
+              <div class="card__head">
+                <h3>Phân tích Thiết kế Hệ thống Bookstore Online</h3>
+                <span class="badge">2024</span>
+              </div>
+              <p class="muted">📖 Đồ án Phân tích Thiết kế &amp; Web</p>
+              <ul>
+                <li>Mô hình hóa biểu đồ Use Case, sơ đồ dữ liệu DFD và thực thể liên kết ERD cho hệ thống bán sách.</li>
+                <li>Xây dựng giao diện Frontend bằng HTML, CSS giúp người dùng duyệt sách và quản lý giỏ hàng.</li>
+                <li>Chuẩn hóa cấu trúc CSDL quản lý sách, đơn hàng và khách hàng.</li>
+              </ul>
+              <ul class="tags"><li>HTML</li><li>CSS</li><li>Frontend</li><li>ERD / UML</li></ul>
+              <button class="btn btn--small js-detail">Xem chi tiết</button>
+            </article>
+          </div>
+
+          <!-- Demo sáng tạo -->
+          <div class="card demo" id="demo">
+            <h3>Thử nhanh: bộ lọc Spam mini</h3>
+            <p class="muted">Bản demo đơn giản dựa trên từ khóa, mô phỏng ý tưởng của dự án Spam Classifier.</p>
+            <label for="spamInput" class="sr-only">Nhập tin nhắn</label>
+            <textarea id="spamInput" rows="3" placeholder="Ví dụ: Chúc mừng bạn trúng thưởng 100 triệu, bấm link nhận ngay!"></textarea>
+            <button class="btn btn--primary" id="spamBtn" type="button">Kiểm tra</button>
+            <p class="demo__result" id="spamResult" aria-live="polite"></p>
+          </div>
+        </section>
+
+        <!-- LIÊN HỆ -->
+        <section class="block" id="contact">
+          <h2 class="block__title">Liên hệ</h2>
+          <form class="card form" id="contactForm" novalidate>
+            <div class="field">
+              <label for="name">Họ tên</label>
+              <input type="text" id="name" name="name" autocomplete="name">
+              <small class="error" id="nameErr"></small>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email">
+              <small class="error" id="emailErr"></small>
+            </div>
+            <div class="field">
+              <label for="message">Nội dung</label>
+              <textarea id="message" name="message" rows="4"></textarea>
+              <small class="error" id="messageErr"></small>
+            </div>
+            <button type="submit" class="btn btn--primary">Gửi lời nhắn</button>
+            <p class="form__ok" id="formOk" aria-live="polite"></p>
+          </form>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>© 2026 Dắn Hiền Phục • Portfolio &amp; Digital CV</p>
+      </footer>
+    </div>
+  </div>
+
+  <!-- MODAL CHI TIẾT DỰ ÁN -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal__box">
+      <button class="icon-btn modal__close" id="modalClose" aria-label="Đóng">✕</button>
+      <h3 id="modalTitle"></h3>
+      <p class="muted" id="modalMeta"></p>
+      <ul id="modalList"></ul>
+      <a href="https://github.com/phucdh1971@ut.edu.vn-rgb" target="_blank" rel="noopener" class="btn btn--primary">Xem trên GitHub</a>
+    </div>
+  </div>
+
+  <button class="to-top" id="toTop" aria-label="Lên đầu trang" hidden>↑</button>
+  <script src="js/script.js"></script>
+</body>
+</html>
