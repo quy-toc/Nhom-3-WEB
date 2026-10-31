@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101719">
-  <meta name="description" content="PHUC.OS — Portfolio cá nhân của Lâm Hoàng Phúc, sinh viên Công nghệ Thông tin tại Đại học Giao thông Vận tải TP.HCM (UTH). Giao diện desktop retro.">
+  <meta name="description" content="PHUC.OS — Digital Portfolio cá nhân của Lâm Hoàng Phúc, sinh viên ngành Công nghệ Thông tin tại Trường Đại học Giao thông Vận tải TP.HCM (UTH).">
   <meta name="author" content="Lâm Hoàng Phúc">
-  <title>PHUC.OS | Personal Desktop Portfolio</title>
+  <title>PHUC.OS | Personal Desktop Portfolio — Lâm Hoàng Phúc (UTH)</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,7 +22,15 @@
       <div class="brand">
         <span class="brand-mark">▣</span>
         <span>PHUC.OS</span>
-        <span class="version">v1.0</span>
+        <span class="version">v1.2</span>
+      </div>
+      <div class="top-nav-links">
+        <button class="top-link-btn" data-window="profile">HỒ SƠ</button>
+        <button class="top-link-btn" data-window="education">HỌC VẤN</button>
+        <button class="top-link-btn" data-window="skills">KỸ NĂNG</button>
+        <button class="top-link-btn" data-window="projects">DỰ ÁN</button>
+        <button class="top-link-btn" data-window="awards">CHỨNG CHỈ</button>
+        <button class="top-link-btn" data-window="contact">LIÊN HỆ</button>
       </div>
       <div class="system-status">
         <span class="status-dot"></span> SYSTEM READY
@@ -37,35 +45,43 @@
         <p class="eyebrow">PERSONAL COMPUTER // USER PROFILE</p>
         <h1>WELCOME TO<br><span>PHUC.OS</span></h1>
         <p class="welcome-copy">
-          Một góc nhỏ lưu trữ hồ sơ, kỹ năng và những dự án của mình.
-          Sinh viên ngành Công nghệ Thông tin — UTH, TP. Hồ Chí Minh.
+          Hồ sơ năng lực cá nhân & sản phẩm lập trình.
+          Sinh viên ngành Công nghệ Thông tin — Trường ĐH Giao thông Vận tải TP.HCM (UTH).
         </p>
-        <p class="hint"><span class="blink">▌</span> Chọn một ứng dụng để bắt đầu.</p>
+        <p class="hint"><span class="blink">▌</span> Nhấp đúp hoặc chạm vào một biểu tượng để mở.</p>
       </div>
 
-      <!-- App Icons Grid -->
-      <nav class="app-grid" aria-label="Ứng dụng">
-        <button class="app-icon" data-window="profile">
+      <!-- App Icons Grid (8 Apps) -->
+      <nav class="app-grid" aria-label="Ứng dụng hệ thống">
+        <button class="app-icon" data-window="profile" title="Hồ sơ cá nhân">
           <span class="pixel-icon green">☺</span>
           <span>PROFILE.EXE</span>
         </button>
-        <button class="app-icon" data-window="skills">
+        <button class="app-icon" data-window="education" title="Học vấn & Hoạt động">
+          <span class="pixel-icon cyan">🎓</span>
+          <span>STUDY.EXE</span>
+        </button>
+        <button class="app-icon" data-window="skills" title="Kho kỹ năng">
           <span class="pixel-icon cyan">⌘</span>
           <span>SKILLS.EXE</span>
         </button>
-        <button class="app-icon" data-window="projects">
+        <button class="app-icon" data-window="projects" title="Dự án cá nhân & Đồ án">
           <span class="pixel-icon green">▤</span>
           <span>PROJECTS.EXE</span>
         </button>
-        <button class="app-icon" data-window="game">
+        <button class="app-icon" data-window="awards" title="Chứng chỉ & Giải thưởng">
+          <span class="pixel-icon pink">★</span>
+          <span>AWARDS.EXE</span>
+        </button>
+        <button class="app-icon" data-window="game" title="Sở thích & Gaming">
           <span class="pixel-icon pink">▣</span>
           <span>GAME.LOG</span>
         </button>
-        <button class="app-icon" data-window="music">
+        <button class="app-icon" data-window="music" title="Âm nhạc & Thư giãn">
           <span class="pixel-icon pink">♫</span>
           <span>MUSIC.BOX</span>
         </button>
-        <button class="app-icon" data-window="contact">
+        <button class="app-icon" data-window="contact" title="Form liên hệ & Kết nối">
           <span class="pixel-icon cyan">✉</span>
           <span>CONTACT.EXE</span>
         </button>
@@ -76,52 +92,54 @@
         <span class="note-symbol">i</span>
         <div>
           <strong>QUICK TIP</strong><br>
-          Nhấn icon để mở cửa sổ. Nhấn nút X để đóng.
+          Nhấn icon để mở cửa sổ. Nhấn nút X để đóng hoặc chuyển qua lại dưới Taskbar.
         </div>
       </div>
 
       <!-- ============================================================
-           WINDOW: PROFILE.EXE — Hồ sơ cá nhân
+           WINDOW 1: PROFILE.EXE — Hồ sơ cá nhân
            ============================================================ -->
       <section class="window" id="window-profile" data-title="PROFILE.EXE" hidden>
         <div class="window-titlebar">
           <span class="window-app-mark">☺</span>
-          <strong>PROFILE.EXE</strong>
+          <strong>PROFILE.EXE — HỒ SƠ CÁ NHÂN</strong>
           <button class="window-close" aria-label="Đóng cửa sổ">×</button>
         </div>
         <div class="window-content profile-content">
-          <div class="avatar">
-            <span>PH</span>
-            <i>+</i>
+          <div class="avatar-box">
+            <img src="images/avatar_phuc.png" alt="Ảnh chân dung Lâm Hoàng Phúc" class="avatar-photo">
+            <span class="avatar-status-badge">ONLINE</span>
           </div>
           <div>
-            <p class="eyebrow">USER IDENTIFIED</p>
+            <p class="eyebrow">USER IDENTIFIED // CANDIDATE PROFILE</p>
             <h2>LÂM HOÀNG PHÚC</h2>
-            <p class="role">Sinh viên Công nghệ Thông tin — ĐH Giao thông Vận tải TP.HCM (UTH)</p>
+            <p class="role">Sinh viên Công nghệ Thông tin — Trường ĐH Giao thông Vận tải TP.HCM (UTH)</p>
             <div class="separator"></div>
 
-            <p>
-              <strong style="color: var(--cyan);">MSSV:</strong> 079205028825<br>
-              <strong style="color: var(--cyan);">Chuyên ngành:</strong> Công nghệ Thông tin — Khoa CNTT<br>
-              <strong style="color: var(--cyan);">Năm học:</strong> Năm 3 (Khóa 2023 – 2027)<br>
-              <strong style="color: var(--cyan);">Lớp:</strong> CNTT24CLC<br>
-              <strong style="color: var(--cyan);">Điểm tích lũy (GPA):</strong> 2.75 / 4.0 (Xếp loại Khá)<br>
-              <strong style="color: var(--cyan);">Vị trí:</strong> Củ Chi, TP. Hồ Chí Minh
-            </p>
+            <div class="meta-info-grid">
+              <div><strong style="color: var(--cyan);">MSSV:</strong> 079205028825</div>
+              <div><strong style="color: var(--cyan);">Lớp:</strong> CNTT24CLC</div>
+              <div><strong style="color: var(--cyan);">Chuyên ngành:</strong> Công nghệ Thông tin</div>
+              <div><strong style="color: var(--cyan);">Trường:</strong> ĐH Giao thông Vận tải TP.HCM (UTH)</div>
+              <div><strong style="color: var(--cyan);">Năm học:</strong> Năm 3 (Khóa 2023 – 2027)</div>
+              <div><strong style="color: var(--cyan);">Điểm tích lũy (GPA):</strong> 2.75 / 4.0 (Khá)</div>
+              <div><strong style="color: var(--cyan);">Khu vực:</strong> Củ Chi, TP. Hồ Chí Minh</div>
+              <div><strong style="color: var(--cyan);">Email:</strong> phuclh8825@ut.edu.vn</div>
+            </div>
 
             <div class="separator"></div>
 
+            <h3 class="subheading"><i class="pixel-dot">●</i> Giới thiệu bản thân</h3>
             <p>
-              Mình là sinh viên đam mê lập trình web và phát triển phần mềm. 
-              Luôn tìm kiếm những thử thách mới để rèn luyện tư duy giải quyết vấn đề.
-              Hiện đang tập trung vào Fullstack Web Development với JavaScript, Node.js 
-              và hệ quản trị cơ sở dữ liệu MySQL.
+              Mình là sinh viên năm 3 chuyên ngành Công nghệ Thông tin tại Trường Đại học Giao thông Vận tải TP.HCM (UTH). 
+              Với niềm đam mê lập trình ứng dụng web và xử lý dữ liệu, mình không ngừng tìm tòi, thực hành qua các bài tập 
+              lab thực tế và đồ án môn học để nâng cao tư duy thuật toán cũng như kỹ năng giải quyết vấn đề.
             </p>
 
-            <p style="color: var(--muted); font-size: 11px;">
-              <strong style="color: var(--green);">Mục tiêu:</strong>
-              Hoàn thành xuất sắc đồ án môn Hệ Thống Công Nghệ Web, 
-              trau dồi kỹ năng Fullstack và trở thành Software Engineer tại doanh nghiệp CNTT hàng đầu.
+            <h3 class="subheading" style="color: var(--green);"><i class="pixel-dot">●</i> Mục tiêu nghề nghiệp (Career Goals)</h3>
+            <p>
+              - <strong>Mục tiêu ngắn hạn:</strong> Hoàn thành xuất sắc đồ án môn Hệ Thống Công Nghệ Web với vai trò Trưởng nhóm dự án SimuStudent; củng cố nền tảng cấu trúc dữ liệu, giải thuật và thành thạo công nghệ Fullstack Web (HTML5/CSS3/JS, Node.js, MySQL).<br>
+              - <strong>Mục tiêu dài hạn:</strong> Trở thành Kỹ sư Phần mềm (Software Engineer / Fullstack Developer) chuyên nghiệp tại các công ty công nghệ; đóng góp vào các giải pháp phần mềm hiện đại và có ích cho xã hội.
             </p>
 
             <div class="tag-row">
@@ -136,140 +154,209 @@
       </section>
 
       <!-- ============================================================
-           WINDOW: SKILLS.EXE — Kỹ năng
+           WINDOW 2: STUDY.EXE — Học vấn & Hoạt động
+           ============================================================ -->
+      <section class="window" id="window-education" data-title="STUDY.EXE" hidden>
+        <div class="window-titlebar">
+          <span class="window-app-mark">🎓</span>
+          <strong>STUDY.EXE — HỌC VẤN & HOẠT ĐỘNG</strong>
+          <button class="window-close" aria-label="Đóng cửa sổ">×</button>
+        </div>
+        <div class="window-content">
+          <p class="eyebrow">ACADEMIC JOURNEY & ACTIVITIES</p>
+          <h2>QUÁ TRÌNH ĐÀO TẠO & HOẠT ĐỘNG</h2>
+          <p class="muted">Lộ trình học tập chuyên ngành tại Khoa Công nghệ Thông tin — UTH.</p>
+
+          <h3 class="subheading"><i class="pixel-dot">●</i> Quá trình học vấn (Education)</h3>
+          <div class="edu-card">
+            <div class="edu-header">
+              <strong style="color: var(--green); font-size: 13px;">TRƯỜNG ĐẠI HỌC GIAO THÔNG VẬN TẢI TP.HCM (UTH)</strong>
+              <span class="edu-time">2023 – 2027 (Hiện tại)</span>
+            </div>
+            <div style="color: var(--cyan); font-size: 11px; margin-bottom: 6px;">Khoa Công nghệ Thông tin • Lớp CNTT24CLC</div>
+            <p style="margin: 4px 0 8px;">
+              - Chuyên ngành: <strong>Công nghệ Thông tin</strong><br>
+              - Điểm trung bình tích lũy hiện tại: <strong>2.75 / 4.0</strong> (Xếp loại Khá)
+            </p>
+            <div class="courses-box">
+              <strong style="color: var(--text);">Các môn học chuyên ngành đã & đang hoàn thành:</strong>
+              <ul class="clean-list">
+                <li>✓ <strong>Cấu trúc Dữ liệu & Giải thuật:</strong> Nắm vững mảng, danh sách liên kết, ngăn xếp, hàng đợi, cây nhị phân, thuật toán tìm kiếm và sắp xếp.</li>
+                <li>✓ <strong>Cơ sở Dữ liệu (Database):</strong> Thiết kế mô hình ERD, chuẩn hóa dữ liệu 3NF, viết truy vấn SQL phức tạp trên MySQL/SQL Server.</li>
+                <li>✓ <strong>Trực quan hóa Dữ liệu (Data Visualization):</strong> Phân tích và biểu diễn dữ liệu bằng biểu đồ trực quan, tối ưu trải nghiệm người xem.</li>
+                <li>✓ <strong>Mạng Máy tính (Computer Networks):</strong> Mô hình OSI, TCP/IP, định tuyến IP, cấu hình mạng cơ bản và giao thức HTTP/HTTPS.</li>
+                <li>✓ <strong>Hệ Thống Công Nghệ Web:</strong> HTML5 semantic, CSS3 Flexbox/Grid, Responsive Bootstrap 5, JavaScript DOM/Event và kiến trúc Web hiện đại.</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class="subheading" style="margin-top: 20px;"><i class="pixel-dot">●</i> Hoạt động & Định hướng rèn luyện (Activities)</h3>
+          <div class="edu-card">
+            <p style="margin: 0 0 8px;">
+              - <strong>Nghiên cứu & Tự học công nghệ:</strong> Chủ động tham gia các diễn đàn lập trình, tự học phát triển Web Fullstack và thực hành xây dựng các dự án mã nguồn mở cá nhân trên GitHub.<br>
+              - <strong>Sinh hoạt học thuật:</strong> Tham gia tích cực các buổi Seminar công nghệ và Workshop giới thiệu chuyên đề CNTT do Đoàn - Hội Khoa CNTT Trường ĐH Giao thông Vận tải TP.HCM tổ chức.<br>
+              - <strong>Làm việc nhóm:</strong> Đảm nhiệm vai trò Trưởng nhóm đồ án Công nghệ Web, rèn luyện kỹ năng phân chia nhiệm vụ, quản trị tiến độ và giao tiếp đồng đội.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           WINDOW 3: SKILLS.EXE — Kỹ năng
            ============================================================ -->
       <section class="window" id="window-skills" data-title="SKILLS.EXE" hidden>
         <div class="window-titlebar">
           <span class="window-app-mark">⌘</span>
-          <strong>SKILLS.EXE</strong>
+          <strong>SKILLS.EXE — BẢNG KỸ NĂNG CHUYÊN MÔN</strong>
           <button class="window-close" aria-label="Đóng cửa sổ">×</button>
         </div>
         <div class="window-content">
           <p class="eyebrow">TOOLKIT / CURRENTLY LEARNING</p>
           <h2>SKILL INVENTORY</h2>
-          <p class="muted">Các công nghệ mình đang học và thực hành trong quá trình đào tạo tại UTH.</p>
+          <p class="muted">Các công nghệ mình đã học và đang ứng dụng vào đồ án thực tế tại UTH.</p>
 
           <div class="skill-list">
             <!-- Frontend -->
             <div class="skill-row">
-              <span>HTML5 / CSS3</span>
-              <span class="skill-state" style="color: var(--green);">IN USE</span>
+              <span>HTML5 / Semantic Web</span>
+              <span class="skill-state" style="color: var(--green);">IN USE (Thành thạo)</span>
             </div>
             <div class="skill-row">
-              <span>JavaScript (ES6+)</span>
-              <span class="skill-state" style="color: var(--green);">IN USE</span>
+              <span>CSS3 / Flexbox / CSS Grid / Animation</span>
+              <span class="skill-state" style="color: var(--green);">IN USE (Thành thạo)</span>
             </div>
             <div class="skill-row">
-              <span>Bootstrap 5</span>
-              <span class="skill-state" style="color: var(--green);">IN USE</span>
+              <span>JavaScript (ES6+ / DOM & Event Handling)</span>
+              <span class="skill-state" style="color: var(--green);">IN USE (Thực hành tốt)</span>
             </div>
             <div class="skill-row">
-              <span>Responsive Web Design</span>
-              <span class="skill-state" style="color: var(--cyan);">PRACTICE</span>
+              <span>Bootstrap 5 / Responsive Design</span>
+              <span class="skill-state" style="color: var(--green);">IN USE (Tốt)</span>
             </div>
 
-            <!-- Backend & DB -->
+            <!-- Backend & Data -->
             <div class="skill-row">
-              <span>Python</span>
-              <span class="skill-state" style="color: var(--cyan);">PRACTICE</span>
+              <span>Cấu trúc dữ liệu & Giải thuật (DSA)</span>
+              <span class="skill-state" style="color: var(--cyan);">PRACTICE (Khá)</span>
             </div>
             <div class="skill-row">
-              <span>C / C++</span>
-              <span class="skill-state" style="color: var(--cyan);">PRACTICE</span>
+              <span>Cơ sở dữ liệu (MySQL / SQL Query)</span>
+              <span class="skill-state" style="color: var(--cyan);">PRACTICE (Khá)</span>
             </div>
             <div class="skill-row">
-              <span>Node.js / Express.js</span>
-              <span class="skill-state" style="color: var(--pink);">LEARNING</span>
+              <span>Trực quan hóa Dữ liệu (Data Visualization)</span>
+              <span class="skill-state" style="color: var(--cyan);">PRACTICE (Khá)</span>
             </div>
             <div class="skill-row">
-              <span>MySQL / MariaDB</span>
-              <span class="skill-state" style="color: var(--cyan);">PRACTICE</span>
+              <span>Mạng máy tính & Giao thức Web (HTTP/REST)</span>
+              <span class="skill-state" style="color: var(--cyan);">PRACTICE (Cơ bản)</span>
+            </div>
+            <div class="skill-row">
+              <span>Node.js / Express.js Backend</span>
+              <span class="skill-state" style="color: var(--pink);">LEARNING (Đang học)</span>
             </div>
 
             <!-- Tools -->
             <div class="skill-row">
-              <span>Git / GitHub</span>
-              <span class="skill-state" style="color: var(--pink);">LEARNING</span>
+              <span>Git / GitHub (Quản lý mã nguồn nhóm)</span>
+              <span class="skill-state" style="color: var(--cyan);">PRACTICE (Sử dụng tốt)</span>
             </div>
             <div class="skill-row">
-              <span>VS Code / Dev Tools</span>
-              <span class="skill-state" style="color: var(--green);">IN USE</span>
-            </div>
-            <div class="skill-row">
-              <span>Figma (Đọc Design)</span>
-              <span class="skill-state" style="color: var(--pink);">LEARNING</span>
+              <span>VS Code / Chrome DevTools</span>
+              <span class="skill-state" style="color: var(--green);">IN USE (Hằng ngày)</span>
             </div>
           </div>
 
           <p class="footnote" style="margin-top: 14px;">
-            * Trạng thái: <span style="color:var(--green);">IN USE</span> = Đang sử dụng thường xuyên |
-            <span style="color:var(--cyan);">PRACTICE</span> = Đang thực hành qua bài tập |
-            <span style="color:var(--pink);">LEARNING</span> = Đang bắt đầu học
+            * Phân loại: <span style="color:var(--green);">IN USE</span> = Sử dụng thành thạo hằng ngày |
+            <span style="color:var(--cyan);">PRACTICE</span> = Đã học và thực hành qua đồ án |
+            <span style="color:var(--pink);">LEARNING</span> = Đang chủ động trau dồi nâng cao
           </p>
         </div>
       </section>
 
       <!-- ============================================================
-           WINDOW: PROJECTS.EXE — Dự án
+           WINDOW 4: PROJECTS.EXE — Dự án có ảnh & link demo
            ============================================================ -->
       <section class="window" id="window-projects" data-title="PROJECTS.EXE" hidden>
         <div class="window-titlebar">
           <span class="window-app-mark">▤</span>
-          <strong>PROJECTS.EXE</strong>
+          <strong>PROJECTS.EXE — DỰ ÁN & ĐỒ ÁN TIÊU BIỂU</strong>
           <button class="window-close" aria-label="Đóng cửa sổ">×</button>
         </div>
         <div class="window-content">
-          <p class="eyebrow">DIRECTORY / MY WORK</p>
+          <p class="eyebrow">DIRECTORY / SHOWCASE (MIN 2 PROJECTS)</p>
           <h2>PROJECT ARCHIVE</h2>
+          <p class="muted">Các sản phẩm đồ án cá nhân và làm việc nhóm trong quá trình học tập.</p>
 
-          <div class="project-list">
+          <div class="project-list-rich">
             <!-- Project 1: SimuStudent -->
-            <article class="project-card">
-              <div class="project-folder">▰</div>
-              <div>
-                <h3>SimuStudent — Web Mô Phỏng Học Tập Sinh Viên</h3>
+            <article class="project-box">
+              <div class="project-thumb">
+                <img src="images/project_simustudent.png" alt="Demo SimuStudent App" class="proj-img">
+              </div>
+              <div class="project-details">
+                <div class="project-tag-line">
+                  <span class="project-status">IN PROGRESS</span>
+                  <span class="role-badge">Trưởng Nhóm / Fullstack</span>
+                </div>
+                <h3>1. SimuStudent — Ứng Dụng Mô Phỏng Học Tập Sinh Viên</h3>
                 <p>
-                  Đồ án nhóm môn Hệ Thống Công Nghệ Web (UTH, HK1/2026). 
-                  Ứng dụng gamification mô phỏng 4 năm đại học, quản lý quỹ thời gian 168h/tuần, 
-                  theo dõi 5 chỉ số: Kiến thức, Sức khỏe, Stress, Thời gian, GPA.
+                  Đồ án nhóm môn Hệ Thống Công Nghệ Web (UTH). Ứng dụng mô phỏng 4 năm học đại học bằng cơ chế game hóa (Gamification), quản trị quỹ thời gian 168 giờ/tuần và cân bằng 5 chỉ số: Kiến thức, Thể lực, Căng thẳng, Thời gian, GPA.
                 </p>
-                <p style="color: var(--cyan); font-size: 10px; margin-top: 6px;">
-                  Vai trò: Trưởng nhóm / Fullstack Lead &nbsp;|&nbsp; Tech: HTML, CSS, JS, Node.js, MySQL
-                </p>
-                <span class="project-status">IN PROGRESS</span>
+                <div class="tech-stack-row">
+                  <span>HTML5</span><span>CSS3</span><span>JavaScript ES6</span><span>Node.js</span><span>MySQL</span>
+                </div>
+                <div class="project-links">
+                  <a href="../web_nhom/index.html" target="_blank" class="proj-btn primary">🔗 Xem Demo Web Nhóm ➔</a>
+                  <a href="../web_nhom/member1_cv.html" target="_blank" class="proj-btn">📄 Xem Digital CV ➔</a>
+                </div>
               </div>
             </article>
 
             <!-- Project 2: PHUC.OS Portfolio -->
-            <article class="project-card">
-              <div class="project-folder">▰</div>
-              <div>
-                <h3>PHUC.OS — Portfolio Desktop Retro</h3>
+            <article class="project-box">
+              <div class="project-thumb">
+                <img src="images/project_phucos.png" alt="Demo PHUC.OS Portfolio" class="proj-img">
+              </div>
+              <div class="project-details">
+                <div class="project-tag-line">
+                  <span class="project-status completed">COMPLETED</span>
+                  <span class="role-badge">Cá Nhân (100%)</span>
+                </div>
+                <h3>2. PHUC.OS — Portfolio Phong Cách Desktop Retro</h3>
                 <p>
-                  Portfolio cá nhân phong cách hệ điều hành retro terminal. 
-                  Xây dựng hoàn toàn bằng HTML, CSS và JavaScript thuần (Vanilla JS). 
-                  Có hệ thống cửa sổ, taskbar, đồng hồ thời gian thực, CRT scanline overlay.
+                  Sản phẩm Portfolio cá nhân nộp giữa kỳ với phong cách Retro Terminal OS. Thiết kế giao diện đa cửa sổ có thể kéo thả, phóng to, thu nhỏ, thanh taskbar động, đồng hồ kỹ thuật số và form liên hệ xác thực JavaScript thuần.
                 </p>
-                <p style="color: var(--cyan); font-size: 10px; margin-top: 6px;">
-                  Vai trò: Cá nhân &nbsp;|&nbsp; Tech: HTML5, CSS3, JavaScript ES6
-                </p>
-                <span class="project-status">IN PROGRESS</span>
+                <div class="tech-stack-row">
+                  <span>Semantic HTML5</span><span>CSS3 Variables</span><span>Vanilla JavaScript</span><span>Responsive Design</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/lamhoangphuc25" target="_blank" class="proj-btn primary">📁 Xem GitHub Repository ➔</a>
+                </div>
               </div>
             </article>
 
-            <!-- Project 3: Bài Tập Tuần HTML/CSS -->
-            <article class="project-card">
-              <div class="project-folder">▰</div>
-              <div>
-                <h3>Bài Tập Thực Hành HTML / CSS / Bootstrap</h3>
+            <!-- Project 3: Chuỗi Bài Tập Tuần Web -->
+            <article class="project-box">
+              <div class="project-thumb">
+                <img src="images/project_labs.png" alt="Demo Bài tập tuần Web" class="proj-img">
+              </div>
+              <div class="project-details">
+                <div class="project-tag-line">
+                  <span class="project-status completed">COMPLETED</span>
+                  <span class="role-badge">Cá Nhân (100%)</span>
+                </div>
+                <h3>3. Bộ Bài Tập Thực Hành Lập Trình Web (Tuần 1 - 6)</h3>
                 <p>
-                  Chuỗi bài tập thực hành theo tuần từ Tuần 1 đến Tuần 6 môn Hệ Thống Công Nghệ Web: 
-                  Tạo form, table, danh sách, layout CSS Grid/Flexbox, responsive design với Bootstrap 5.
+                  Tổng hợp bài tập thực hành theo tiến độ môn học: thiết kế form đăng ký, bảng dữ liệu, layout Flexbox/Grid, tương tác DOM và giao diện ứng dụng chuẩn Bootstrap 5 responsive.
                 </p>
-                <p style="color: var(--cyan); font-size: 10px; margin-top: 6px;">
-                  Vai trò: Cá nhân &nbsp;|&nbsp; Tech: HTML5, CSS3, Bootstrap 5
-                </p>
-                <span class="project-status" style="color: var(--green); border-color: #477a68;">COMPLETED</span>
+                <div class="tech-stack-row">
+                  <span>HTML5</span><span>CSS3</span><span>Bootstrap 5</span><span>DOM Scripting</span>
+                </div>
+                <div class="project-links">
+                  <span style="font-size: 11px; color: var(--green);">✓ Đã nghiệm thu & nộp bài đúng hạn</span>
+                </div>
               </div>
             </article>
           </div>
@@ -277,7 +364,44 @@
       </section>
 
       <!-- ============================================================
-           WINDOW: GAME.LOG — Sở thích gaming
+           WINDOW 5: AWARDS.EXE — Chứng chỉ & Giải thưởng (Tiêu chí 7)
+           ============================================================ -->
+      <section class="window" id="window-awards" data-title="AWARDS.EXE" hidden>
+        <div class="window-titlebar">
+          <span class="window-app-mark">★</span>
+          <strong>AWARDS.EXE — CHỨNG CHỈ & GIẢI THƯỞNG</strong>
+          <button class="window-close" aria-label="Đóng cửa sổ">×</button>
+        </div>
+        <div class="window-content">
+          <p class="eyebrow">HONORS, CERTIFICATIONS & ACHIEVEMENTS</p>
+          <h2>CHỨNG CHỈ & GIẢI THƯỞNG</h2>
+          <p class="muted">Thông tin chứng nhận năng lực theo yêu cầu đặc tả của môn học.</p>
+
+          <div class="award-block">
+            <h3 class="subheading"><i class="pixel-dot">●</i> 1. Chứng chỉ chuyên môn & Ngoại ngữ:</h3>
+            <div class="award-item">
+              <strong>Tình trạng:</strong> <span style="color: var(--pink);">Chưa có</span> *(Hiện đang trong quá trình học và ôn luyện)*
+              <ul class="clean-list" style="margin-top: 6px;">
+                <li>• Kế hoạch mục tiêu 2026: Thi chứng chỉ Tiếng Anh chuẩn đầu ra UTH (TOEIC 550+).</li>
+                <li>• Kế hoạch học tập: Hoàn thành chứng chỉ trực tuyến về Fullstack Web Development & Git.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="award-block" style="margin-top: 18px;">
+            <h3 class="subheading"><i class="pixel-dot">●</i> 2. Giải thưởng & Thành tích:</h3>
+            <div class="award-item">
+              <strong>Tình trạng:</strong> <span style="color: var(--pink);">Chưa có</span>
+              <p style="margin: 6px 0 0; color: var(--muted); font-size: 11px;">
+                * Hiện tại mình đang tập trung cao độ vào việc rèn luyện học tập chuyên ngành trên giảng đường và hoàn thiện các sản phẩm đồ án môn học với chất lượng tốt nhất.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           WINDOW 6: GAME.LOG — Sở thích gaming
            ============================================================ -->
       <section class="window" id="window-game" data-title="GAME.LOG" hidden>
         <div class="window-titlebar">
@@ -292,8 +416,8 @@
           <div class="game-panel">
             <div class="gamepad">✣</div>
             <div>
-              <strong>HOBBY: GAMING</strong>
-              <p>Chơi game là cách mình thư giãn sau những buổi học căng thẳng và cũng là nguồn cảm hứng để làm đồ án gamification!</p>
+              <strong>HOBBY: GAMING & TƯ DUY CHIẾN THUẬT</strong>
+              <p>Chơi game là cách mình giải tỏa stress sau những giờ code căng thẳng và lấy ý tưởng để ứng dụng Gamification vào đồ án phần mềm!</p>
             </div>
           </div>
 
@@ -302,19 +426,19 @@
             <div class="skill-list" style="margin-top: 8px;">
               <div class="skill-row">
                 <span>Valorant</span>
-                <span class="skill-state" style="color: var(--pink);">FPS / TACTICAL</span>
+                <span class="skill-state" style="color: var(--pink);">FPS / TACTICAL SHOOTER</span>
               </div>
               <div class="skill-row">
                 <span>League of Legends</span>
-                <span class="skill-state" style="color: var(--cyan);">MOBA</span>
+                <span class="skill-state" style="color: var(--cyan);">MOBA / TEAMPLAY</span>
               </div>
               <div class="skill-row">
                 <span>Minecraft</span>
-                <span class="skill-state" style="color: var(--green);">SANDBOX</span>
+                <span class="skill-state" style="color: var(--green);">SANDBOX / LOGIC REDSTONE</span>
               </div>
               <div class="skill-row">
                 <span>Genshin Impact</span>
-                <span class="skill-state" style="color: var(--pink);">OPEN WORLD</span>
+                <span class="skill-state" style="color: var(--pink);">OPEN WORLD / ADVENTURE</span>
               </div>
             </div>
           </div>
@@ -324,14 +448,13 @@
           </div>
 
           <p class="footnote" style="margin-top: 14px;">
-            REAL LIFE QUEST: keep learning, keep building, keep improving.
-            <br>Gaming giúp mình rèn phản xạ, tư duy chiến thuật và tinh thần đồng đội.
+            REAL LIFE QUEST: Keep learning, keep building, keep improving.
           </p>
         </div>
       </section>
 
       <!-- ============================================================
-           WINDOW: MUSIC.BOX — Âm nhạc
+           WINDOW 7: MUSIC.BOX — Âm nhạc
            ============================================================ -->
       <section class="window" id="window-music" data-title="MUSIC.BOX" hidden>
         <div class="window-titlebar">
@@ -354,71 +477,95 @@
             </div>
           </div>
 
-          <p>Mình thích nghe nhạc trong lúc code hoặc làm bài tập — giúp tập trung hơn rất nhiều!</p>
+          <p>Âm nhạc giúp mình duy trì sự tập trung cao độ khi debug và viết tài liệu kỹ thuật.</p>
 
           <div style="margin-top: 12px;">
-            <p class="eyebrow" style="margin-bottom: 6px;">FAVORITE GENRES & ARTISTS</p>
+            <p class="eyebrow" style="margin-bottom: 6px;">FAVORITE GENRES</p>
             <div class="skill-list" style="margin-top: 8px;">
               <div class="skill-row">
-                <span>Lofi Hip Hop / Chill</span>
-                <span class="skill-state" style="color: var(--green);">CODING MODE</span>
+                <span>Lofi Beats / Synthwave</span>
+                <span class="skill-state" style="color: var(--green);">CODING & FOCUS MODE</span>
               </div>
               <div class="skill-row">
-                <span>V-Pop / Rap Việt</span>
+                <span>V-Pop / Indie Việt</span>
                 <span class="skill-state" style="color: var(--pink);">DAILY VIBE</span>
               </div>
               <div class="skill-row">
-                <span>EDM / Future Bass</span>
-                <span class="skill-state" style="color: var(--cyan);">GAMING MODE</span>
+                <span>EDM / Gaming Soundtracks</span>
+                <span class="skill-state" style="color: var(--cyan);">ENERGY BOOST</span>
               </div>
             </div>
           </div>
-
-          <p class="muted" style="margin-top: 14px; font-size: 10px;">
-            "Code mà không có nhạc thì như cơm mà thiếu muối." — Phúc, 2026
-          </p>
         </div>
       </section>
 
       <!-- ============================================================
-           WINDOW: CONTACT.EXE — Liên hệ
+           WINDOW 8: CONTACT.EXE — Form liên hệ + Validate JavaScript (Tiêu chí 15)
            ============================================================ -->
       <section class="window" id="window-contact" data-title="CONTACT.EXE" hidden>
         <div class="window-titlebar">
           <span class="window-app-mark">✉</span>
-          <strong>CONTACT.EXE</strong>
+          <strong>CONTACT.EXE — BIỂU MẪU LIÊN HỆ</strong>
           <button class="window-close" aria-label="Đóng cửa sổ">×</button>
         </div>
         <div class="window-content">
-          <p class="eyebrow">ESTABLISH CONNECTION</p>
+          <p class="eyebrow">ESTABLISH CONNECTION // FORM VALIDATION</p>
           <h2>LET'S CONNECT</h2>
-          <p class="muted">Kết nối với mình qua các kênh dưới đây. Mọi phản hồi đều được trân trọng!</p>
+          <p class="muted">Gửi tin nhắn hoặc góp ý cho mình. Biểu mẫu được kiểm tra hợp lệ bằng JavaScript trước khi gửi.</p>
 
-          <div class="contact-line">
-            <span>EMAIL</span>
-            <strong style="color: var(--green);">phuclh8825@ut.edu.vn</strong>
-          </div>
-          <div class="contact-line">
-            <span>GITHUB</span>
-            <strong style="color: var(--green);">github.com/lamhoangphuc25</strong>
-          </div>
-          <div class="contact-line">
-            <span>MSSV</span>
-            <strong style="color: var(--green);">079205028825</strong>
-          </div>
-          <div class="contact-line">
-            <span>TRƯỜNG</span>
-            <strong style="color: var(--green);">ĐH Giao Thông Vận Tải TP.HCM (UTH)</strong>
-          </div>
-          <div class="contact-line">
-            <span>WEB NHÓM</span>
-            <strong><a href="../web_nhom/index.html" style="color: var(--cyan);">SimuStudent Team ➔</a></strong>
+          <div class="contact-meta-box">
+            <div class="contact-line">
+              <span>EMAIL TRƯỜNG:</span>
+              <strong style="color: var(--green);">phuclh8825@ut.edu.vn</strong>
+            </div>
+            <div class="contact-line">
+              <span>GITHUB PROFILE:</span>
+              <strong style="color: var(--green);"><a href="https://github.com/lamhoangphuc25" target="_blank" style="color: var(--green);">github.com/lamhoangphuc25 ➔</a></strong>
+            </div>
+            <div class="contact-line">
+              <span>ĐỒ ÁN NHÓM:</span>
+              <strong><a href="../web_nhom/index.html" target="_blank" style="color: var(--cyan);">Web Nhóm SimuStudent ➔</a></strong>
+            </div>
           </div>
 
-          <button class="terminal-button" id="contact-message">
-            > echo "Thanks for visiting PHUC.OS!"
-          </button>
-          <p class="contact-feedback" id="contact-feedback" aria-live="polite"></p>
+          <!-- Contact Form with JS Validation -->
+          <form id="contact-form" class="retro-form" novalidate>
+            <div class="form-group">
+              <label for="contact-name">> Họ và tên của bạn: <span style="color: var(--pink);">*</span></label>
+              <input type="text" id="contact-name" class="form-input" placeholder="Nhập họ và tên..." autocomplete="name">
+              <span class="error-msg" id="err-name"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email">> Địa chỉ Email: <span style="color: var(--pink);">*</span></label>
+              <input type="email" id="contact-email" class="form-input" placeholder="name@example.com" autocomplete="email">
+              <span class="error-msg" id="err-email"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-subject">> Tiêu đề liên hệ: <span style="color: var(--pink);">*</span></label>
+              <input type="text" id="contact-subject" class="form-input" placeholder="Đồ án Web / Góp ý / Trao đổi học tập...">
+              <span class="error-msg" id="err-subject"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-body">> Nội dung lời nhắn: <span style="color: var(--pink);">*</span></label>
+              <textarea id="contact-body" class="form-textarea" rows="4" placeholder="Nhập nội dung tin nhắn của bạn tại đây..."></textarea>
+              <span class="error-msg" id="err-body"></span>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="terminal-button primary" id="btn-submit-contact">
+                <span class="btn-symbol">⚡</span> GỬI TIN NHẮN (SEND MESSAGE)
+              </button>
+              <button type="reset" class="terminal-button secondary" id="btn-reset-contact">
+                LÀM LẠI (RESET)
+              </button>
+            </div>
+          </form>
+
+          <!-- Feedback message -->
+          <div class="contact-feedback-box" id="contact-feedback" style="display: none;"></div>
         </div>
       </section>
 
@@ -427,7 +574,7 @@
 
     <!-- ======= TASKBAR (Bottom) ======= -->
     <footer class="taskbar">
-      <button class="start-button" id="start-button">
+      <button class="start-button" id="start-button" title="Nhấn để thu gọn toàn bộ cửa sổ">
         <span>▣</span> START
       </button>
       <div class="task-items" id="task-items" aria-label="Cửa sổ đang mở"></div>
@@ -443,7 +590,7 @@
   <!-- Toast Notification -->
   <div class="toast" id="toast" role="status" aria-live="polite">PHUC.OS READY</div>
 
-  <!-- Main Script -->
+  <!-- Main JavaScript File -->
   <script src="script.js"></script>
 </body>
 </html>
