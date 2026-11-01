@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="CV của Phan Mạnh Quý — Thực tập sinh Cloud AI & Data Science tại AWS.">
     <title>Phan Mạnh Quý — Digital CV</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -191,54 +191,196 @@
                         <div class="tl-tags">
                             <span>AWS</span><span>SageMaker</span><span>Python</span><span>Cloud AI</span>
                         </div>
+                        <!-- Project Image -->
+                        <img
+                            src="images/AWS_senior.jpg"
+                            alt="Profile Picture of Phan Mạnh Quý at AWS"
+                            class="project-img"
+                        >
                     </div>
                 </div>
 
-                <!-- Deep Learning project -->
+                <!-- Deep Learning Project -->
                 <div class="timeline-item">
                     <div class="tl-dot"></div>
+
                     <div class="tl-body">
                         <div class="tl-header">
                             <div>
-                                <h4>Phân tích cảm xúc văn bản — Deep Learning</h4>
-                                <p class="tl-sub"><i class="fa-solid fa-users"></i> Dự án nhóm lớp</p>
+                                <h4>Deep Learning — Computer Vision & NLP</h4>
+                                <p class="tl-sub">
+                                    <i class="fa-solid fa-users"></i>
+                                    Dự án nhóm môn học — UTH
+                                </p>
                             </div>
                             <span class="tl-date">2025</span>
                         </div>
+
                         <ul class="tl-details">
-                            <li>Huấn luyện mạng ANN và Fine-tuning DistilBERT cho bài toán Sentiment Analysis</li>
-                            <li>Đạt độ chính xác trên 89% trên tập kiểm tra</li>
+                            <li>
+                                Xây dựng pipeline phân loại ảnh CIFAR-10 bằng PyTorch;
+                                triển khai các mô hình CNN pretrained gồm ResNet-18,
+                                VGG-16 và DenseNet-121, áp dụng Transfer Learning
+                                và Fine-tuning.
+                            </li>
+
+                            <li>
+                                Phát triển quy trình xử lý dữ liệu, huấn luyện,
+                                Validation, lưu Best Checkpoint và theo dõi
+                                Training/Validation Loss, Accuracy bằng TensorBoard.
+                            </li>
+
+                            <li>
+                                Thử nghiệm ResNet-18 với chiến lược Layer4 + FC,
+                                đạt 92.16% Validation Accuracy.
+                            </li>
+
+                            <li>
+                                Đảm nhiệm TV5 — Training & Fine-tuning:
+                                Fine-tuning DistilBERT trên tập dữ liệu IMDB
+                                cho bài toán Binary Sentiment Analysis bằng
+                                Hugging Face Trainer, đạt 91.48% Validation Accuracy.
+                            </li>
                         </ul>
+
                         <div class="tl-tags">
-                            <span>Python</span><span>PyTorch</span><span>DistilBERT</span><span>NLP</span>
+                            <span>Python</span>
+                            <span>PyTorch</span>
+                            <span>Torchvision</span>
+                            <span>CIFAR-10</span>
+                            <span>ResNet-18</span>
+                            <span>Transfer Learning</span>
+                            <span>Hugging Face</span>
+                            <span>DistilBERT</span>
+                            <span>NLP</span>
                         </div>
+
+                        <!-- Project Image: ResNet18 Training Results -->
+                        <img
+                            src="images/resnet18_accuracy.png"
+                            alt="ResNet18 Training and Validation Results"
+                            class="project-img"
+                        >
+                        <img
+                            src="images/resnet18_correct_predictions.png"
+                            alt="ResNet18 Correct Predictions on CIFAR-10"
+                            class="project-img"
+                        >
+
+                        <!-- GitHub Repository -->
+                        <a
+                            href="https://github.com/tanlen06-debug/UTH-Deep-Learning-nhom3/tree/quy-branch"
+                            class="project-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fa-brands fa-github"></i>
+                            Xem mã nguồn và kết quả dự án
+                        </a>
                     </div>
                 </div>
 
-                <!-- ML project -->
+                <!-- Machine Learning Project -->
                 <div class="timeline-item">
                     <div class="tl-dot"></div>
+
                     <div class="tl-body">
                         <div class="tl-header">
                             <div>
-                                <h4>Hồi quy &amp; Phân cụm — Machine Learning</h4>
-                                <p class="tl-sub"><i class="fa-solid fa-users"></i> Dự án nhóm lớp</p>
+                                <h4>Machine Learning — Supervised & Unsupervised Learning</h4>
+                                <p class="tl-sub">
+                                    <i class="fa-solid fa-users"></i>
+                                    Dự án nhóm lớp
+                                </p>
                             </div>
                             <span class="tl-date">2024</span>
                         </div>
+
                         <ul class="tl-details">
-                            <li>Triển khai Linear/Logistic Regression, SVR và thuật toán phân cụm DBSCAN</li>
-                            <li>So sánh, đánh giá hiệu năng mô hình trên tập dữ liệu thực tế</li>
+                            <li>
+                                Huấn luyện các mô hình Classification như Logistic
+                                Regression, SVM và Complement Naive Bayes cho bài toán
+                                phân loại email Spam/Ham; thực hiện xử lý văn bản,
+                                TF-IDF và tối ưu ngưỡng dự đoán.
+                            </li>
+
+                            <li>
+                                Xây dựng và huấn luyện các mô hình Regression gồm
+                                Linear Regression, SVR và MLP bằng PyTorch cho bài toán
+                                dự báo doanh thu và giá nhà; triển khai Training Loop,
+                                theo dõi Loss và dự đoán trên dữ liệu kiểm tra.
+                            </li>
+
+                            <li>
+                                Triển khai K-means và DBSCAN bằng NumPy cho bài toán
+                                phân cụm khách hàng Mall Customers; thực hiện EDA,
+                                Feature Engineering, chuẩn hóa dữ liệu và tối ưu
+                                tham số phân cụm.
+                            </li>
+
+                            <li>
+                                Trực tiếp thực hiện Model Training và Model Evaluation;
+                                đánh giá, so sánh mô hình bằng Accuracy, Precision,
+                                Recall, F1-score, Confusion Matrix, MSE, RMSE, MAE,
+                                R² và Silhouette Score.
+                            </li>
                         </ul>
+
                         <div class="tl-tags">
-                            <span>Scikit-learn</span><span>Pandas</span><span>SVR</span><span>DBSCAN</span>
+                            <span>Python</span>
+                            <span>NumPy</span>
+                            <span>Pandas</span>
+                            <span>Scikit-learn</span>
+                            <span>PyTorch</span>
+                            <span>Regression</span>
+                            <span>Classification</span>
+                            <span>SVM</span>
+                            <span>K-means</span>
+                            <span>DBSCAN</span>
+                            <span>TF-IDF</span>
                         </div>
+
+                        <!-- Project Image -->
+                        <img
+                            src="images/ml-dbscan-clusters.jpg"
+                            alt="Customer Segmentation using K-means and DBSCAN"
+                            class="project-img"
+                        >
+
+                        <!-- Project Link -->
+                        <a
+                            href="https://github.com/viet-du/Machine-Learning-Lad"
+                            class="project-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fa-brands fa-github"></i>
+                            Xem mã nguồn và kết quả dự án
+                        </a>
                     </div>
                 </div>
-
-            </div>
+<!-- FORM LIÊN HỆ  -->
+        <section class="cv-section">
+            <h2 class="section-title">
+                <span class="title-dot"></span>
+                GỬI TIN NHẮN LIÊN HỆ
+            </h2>
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="txtName" placeholder="Họ và tên *">
+                    <span class="error-msg" id="errName"></span>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="txtEmail" placeholder="Email *">
+                    <span class="error-msg" id="errEmail"></span>
+                </div>
+                <div class="form-group">
+                    <textarea id="txtMessage" rows="3" placeholder="Nội dung tin nhắn *"></textarea>
+                    <span class="error-msg" id="errMessage"></span>
+                </div>
+                <button type="submit" class="btn-submit">Gửi Tin Nhắn</button>
+            </form>
         </section>
-
         <!-- Footer nhỏ bên trong main -->
         <div class="cv-footer">
             <p>© 2026 Phan Mạnh Quý · Portfolio & Digital CV</p>
@@ -246,7 +388,8 @@
 
     </main>
 </div>
-
-<script src="js/main.js"></script>
+<!-- Nút Lên Đầu Trang -->
+<button id="backToTop" class="back-to-top" title="Lên đầu trang"><i class="fa-solid fa-arrow-up"></i></button>
+<script src="main.js"></script>
 </body>
 </html>
