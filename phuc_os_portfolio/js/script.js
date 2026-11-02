@@ -1,7 +1,3 @@
-/**
- * PORTFOLIO SCRIPTS — LÂM HOÀNG PHÚC (UTH)
- * Xử lý tương tác giao diện và kiểm tra hợp lệ biểu mẫu (Form Validation)
- */
 
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
