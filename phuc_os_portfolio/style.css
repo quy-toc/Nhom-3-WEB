@@ -1196,3 +1196,30 @@ header {
     padding: 20px;
   }
 }
+.btn-back-taskbar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background-color: #e2e8f0;
+    color: #475569;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 16px;
+    margin-right: 15px; /* Đẩy Logo ra xa một chút */
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.btn-back-taskbar:hover {
+    background-color: #3b82f6;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+}
+
+/* Đảm bảo thanh Navbar hiển thị nút theo chiều ngang */
+header, nav {
+    display: flex;
+    align-items: center;
+}
