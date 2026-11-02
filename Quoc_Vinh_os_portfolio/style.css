@@ -289,3 +289,25 @@ body {
   padding-top: 14px;
   border-top: 1px solid #f1f5f9;
 }
+.btn-back-phuc {
+    position: fixed;
+    bottom: 30px; /* Neo cố định ở góc dưới */
+    right: 30px;
+    background-color: #ffffff; /* Nền trắng để nổi bật */
+    color: #000000; /* Chữ màu đen */
+    border: 2px solid #000000; /* Viền đen rõ nét */
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 9999;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+.btn-back-phuc:hover {
+    background-color: #000000;
+    color: #ffffff;
+}

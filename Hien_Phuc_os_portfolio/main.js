@@ -3,21 +3,34 @@ const $ = (selector, scope = document) => scope.querySelector(selector);
 const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
 
 /* ===== 1. DARK MODE (lưu lựa chọn bằng localStorage) ===== */
-const themeBtn = $("#themeToggle");
+document.addEventListener("DOMContentLoaded", () => {
+  const themeBtn = $("#themeToggle");
+  const htmlDoc = document.documentElement;
 
-function applyTheme(theme) {
-  document.documentElement.dataset.theme = theme;
-  themeBtn.textContent = theme === "dark" ? "☀️" : "🌙";
-}
+  // Nếu không tìm thấy nút trên HTML thì dừng lại, tránh báo lỗi
+  if (!themeBtn) return; 
 
-let savedTheme = "light";
-try { savedTheme = localStorage.getItem("theme") || "light"; } catch (e) { /* bỏ qua */ }
-applyTheme(savedTheme);
+  function applyTheme(theme) {
+    htmlDoc.dataset.theme = theme;
+    themeBtn.textContent = theme === "dark" ? "☀️" : "🌙";
+  }
 
-themeBtn.addEventListener("click", () => {
-  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-  applyTheme(next);
-  try { localStorage.setItem("theme", next); } catch (e) { /* bỏ qua */ }
+  // Khôi phục bộ nhớ
+  let savedTheme = "light";
+  try { 
+    savedTheme = localStorage.getItem("theme") || "light"; 
+  } catch (e) { /* bỏ qua */ }
+  
+  applyTheme(savedTheme);
+
+  // Lắng nghe sự kiện click
+  themeBtn.addEventListener("click", () => {
+    const next = htmlDoc.dataset.theme === "dark" ? "light" : "dark";
+    applyTheme(next);
+    try { 
+      localStorage.setItem("theme", next); 
+    } catch (e) { /* bỏ qua */ }
+  });
 });
 
 /* ===== 2. MENU MOBILE ===== */

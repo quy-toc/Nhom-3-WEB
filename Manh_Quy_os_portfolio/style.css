@@ -600,37 +600,25 @@ BỔ SUNG CSS CHO DỰ ÁN & FORM LIÊN HỆ
     background: #3b82f6;
 }
 /* Nút Quay về trang chủ cố định góc trái */
-.btn-back-home {
+.btn-back-phuc {
     position: fixed;
-    top: 20px;
-    left: 20px;
-    background-color: #1a2744;
-    color: #ffffff;
-    padding: 10px 18px;
-    border-radius: 30px;
+    bottom: 30px; /* Neo cố định ở góc dưới */
+    right: 30px;
+    background-color: #ffffff; /* Nền trắng để nổi bật */
+    color: #000000; /* Chữ màu đen */
+    border: 2px solid #000000; /* Viền đen rõ nét */
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
     text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    z-index: 9999;
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    z-index: 9999;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     transition: all 0.3s ease;
 }
-
-.btn-back-home:hover {
-    background-color: #3b82f6;
-    transform: translateX(-4px);
+.btn-back-phuc:hover {
+    background-color: #000000;
     color: #ffffff;
-}
-
-/* Thích ứng màn hình nhỏ */
-@media (max-width: 768px) {
-    .btn-back-home {
-        top: 10px;
-        left: 10px;
-        padding: 8px 14px;
-        font-size: 12px;
-    }
 }
