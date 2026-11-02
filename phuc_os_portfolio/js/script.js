@@ -1,287 +1,242 @@
 /**
- * PHUC.OS • CORE SCRIPT & INTERACTION CONTROLLER
- * Trường Đại học Giao thông Vận tải TP.HCM (UTH)
- * Khoa Công nghệ Thông tin - Môn: Hệ Thống Công Nghệ Web
- * 
- * Tính năng chính:
- * 1. Quản lý cửa sổ đa nhiệm (Open, Close, Focus z-index, Taskbar items)
- * 2. Đồng hồ kỹ thuật số thời gian thực (Real-time Digital Clock)
- * 3. Toast Notifications hệ thống
- * 4. Xác thực Form liên hệ bằng JavaScript (Form Validation - Tiêu chí 15)
- * 5. Điều hướng Topbar Navigation
+ * PORTFOLIO SCRIPTS — LÂM HOÀNG PHÚC (UTH)
+ * Xử lý tương tác giao diện và kiểm tra hợp lệ biểu mẫu (Form Validation)
  */
 
-(() => {
+document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
-  // DOM Elements
-  const windows = Array.from(document.querySelectorAll('.window'));
-  const appIcons = Array.from(document.querySelectorAll('.app-icon'));
-  const topNavButtons = Array.from(document.querySelectorAll('.top-link-btn'));
-  const taskItemsContainer = document.getElementById('task-items');
-  const toastElement = document.getElementById('toast');
-  const startButton = document.getElementById('start-button');
-  const clockElement = document.getElementById('clock');
+  /* ==========================================================================
+     1. THEME TOGGLE (DARK / LIGHT MODE)
+     ========================================================================== */
+  const themeToggleBtn = document.getElementById('theme-toggle-btn');
+  const themeIcon = document.getElementById('theme-icon');
+  const savedTheme = localStorage.getItem('portfolio-theme') || 'light';
 
-  // Contact Form Elements
+  // Apply saved theme
+  if (savedTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    if (themeIcon) themeIcon.textContent = '☀️';
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+    if (themeIcon) themeIcon.textContent = '🌙';
+  }
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('portfolio-theme', 'light');
+        if (themeIcon) themeIcon.textContent = '🌙';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('portfolio-theme', 'dark');
+        if (themeIcon) themeIcon.textContent = '☀️';
+      }
+    });
+  }
+
+  /* ==========================================================================
+     2. MOBILE NAVBAR TOGGLE
+     ========================================================================== */
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const navList = document.getElementById('nav-list');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  if (mobileMenuBtn && navList) {
+    mobileMenuBtn.addEventListener('click', () => {
+      navList.classList.toggle('mobile-open');
+    });
+
+    // Close mobile menu when clicking any nav link
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        navList.classList.remove('mobile-open');
+      });
+    });
+  }
+
+  /* ==========================================================================
+     3. ACTIVE NAVIGATION LINK ON SCROLL & BACK TO TOP BUTTON
+     ========================================================================== */
+  const sections = document.querySelectorAll('section[id], div[id].main_container_home');
+  const backToTopBtn = document.getElementById('back-to-top');
+
+  window.addEventListener('scroll', () => {
+    const scrollPos = window.scrollY + 120;
+
+    sections.forEach((sec) => {
+      const top = sec.offsetTop;
+      const height = sec.offsetHeight;
+      const id = sec.getAttribute('id');
+
+      if (scrollPos >= top && scrollPos < top + height) {
+        navLinks.forEach((link) => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+
+    // Back to top button visibility
+    if (backToTopBtn) {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    }
+  });
+
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* ==========================================================================
+     4. PROJECT FILTER TABS
+     ========================================================================== */
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card-item');
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter');
+
+      projectCards.forEach((card) => {
+        const category = card.getAttribute('data-category');
+        if (filterValue === 'all' || category === filterValue) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  /* ==========================================================================
+     5. CONTACT FORM VALIDATION (Tiêu chí 15 Rubric)
+     ========================================================================== */
   const contactForm = document.getElementById('contact-form');
-  const inputName = document.getElementById('contact-name');
-  const inputEmail = document.getElementById('contact-email');
-  const inputSubject = document.getElementById('contact-subject');
-  const inputBody = document.getElementById('contact-body');
+  const nameInput = document.getElementById('contact-name');
+  const emailInput = document.getElementById('contact-email');
+  const subjectInput = document.getElementById('contact-subject');
+  const messageInput = document.getElementById('contact-message');
   const feedbackBox = document.getElementById('contact-feedback');
 
   const errName = document.getElementById('err-name');
   const errEmail = document.getElementById('err-email');
   const errSubject = document.getElementById('err-subject');
-  const errBody = document.getElementById('err-body');
+  const errMessage = document.getElementById('err-message');
 
-  let activeZIndex = 20;
-  let toastTimer = null;
-
-  /* ==========================================================================
-     1. TOAST NOTIFICATION
-     ========================================================================== */
-  function showToast(message) {
-    if (!toastElement) return;
-    toastElement.textContent = message;
-    toastElement.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => {
-      toastElement.classList.remove('show');
-    }, 2000);
-  }
-
-  /* ==========================================================================
-     2. WINDOW MANAGEMENT & TASKBAR
-     ========================================================================== */
-  function getWindowById(windowId) {
-    return document.getElementById(`window-${windowId}`);
-  }
-
-  function focusWindow(targetWindow) {
-    activeZIndex += 1;
-    targetWindow.style.zIndex = activeZIndex;
-
-    const currentId = targetWindow.id.replace('window-', '');
-    taskItemsContainer.querySelectorAll('.task-item').forEach((item) => {
-      item.classList.toggle('active', item.dataset.window === currentId);
-    });
-  }
-
-  function renderTaskbar() {
-    taskItemsContainer.innerHTML = '';
-    const openWindows = windows.filter((win) => !win.hidden);
-
-    openWindows.forEach((win) => {
-      const windowId = win.id.replace('window-', '');
-      const taskButton = document.createElement('button');
-      taskButton.className = 'task-item';
-      taskButton.dataset.window = windowId;
-      taskButton.textContent = win.dataset.title;
-      taskButton.title = `Chuyển tới ${win.dataset.title}`;
-
-      taskButton.addEventListener('click', () => {
-        if (win.hidden) {
-          win.hidden = false;
-        }
-        focusWindow(win);
-      });
-
-      taskItemsContainer.appendChild(taskButton);
-    });
-  }
-
-  function openWindow(windowId) {
-    const targetWindow = getWindowById(windowId);
-    if (!targetWindow) return;
-
-    targetWindow.hidden = false;
-    focusWindow(targetWindow);
-    renderTaskbar();
-    showToast(`MỞ ỨNG DỤNG: ${targetWindow.dataset.title}`);
-  }
-
-  function closeWindow(targetWindow) {
-    targetWindow.hidden = true;
-    renderTaskbar();
-    showToast(`ĐÃ ĐÓNG: ${targetWindow.dataset.title}`);
-  }
-
-  // Register app icon clicks
-  appIcons.forEach((icon) => {
-    icon.addEventListener('click', () => {
-      const targetWindowId = icon.dataset.window;
-      openWindow(targetWindowId);
-    });
-  });
-
-  // Register Topbar navigation clicks
-  topNavButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const targetWindowId = btn.dataset.window;
-      openWindow(targetWindowId);
-    });
-  });
-
-  // Register window close buttons & focus click
-  windows.forEach((win) => {
-    const closeBtn = win.querySelector('.window-close');
-    if (closeBtn) {
-      closeBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        closeWindow(win);
-      });
-    }
-
-    win.addEventListener('pointerdown', () => {
-      focusWindow(win);
-    });
-  });
-
-  // Start button resets / minimizes all open windows
-  if (startButton) {
-    startButton.addEventListener('click', () => {
-      windows.forEach((win) => {
-        win.hidden = true;
-      });
-      renderTaskbar();
-      showToast('DESKTOP CLEANED // SYSTEM READY');
-    });
-  }
-
-  /* ==========================================================================
-     3. REAL-TIME DIGITAL CLOCK
-     ========================================================================== */
-  function updateClock() {
-    if (!clockElement) return;
-    const now = new Date();
-    clockElement.textContent = now.toLocaleTimeString('vi-VN', {
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false
-    });
-  }
-
-  updateClock();
-  setInterval(updateClock, 10000);
-
-  /* ==========================================================================
-     4. FORM VALIDATION BẰNG JAVASCRIPT (Đặc tả Rubric Tiêu chí 15)
-     ========================================================================== */
   function isValidEmail(email) {
-    // Standard RFC5322 regex for valid email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email.trim());
   }
 
   function clearErrors() {
-    [errName, errEmail, errSubject, errBody].forEach((errEl) => {
-      if (errEl) errEl.textContent = '';
+    [errName, errEmail, errSubject, errMessage].forEach((el) => {
+      if (el) el.textContent = '';
     });
-    [inputName, inputEmail, inputSubject, inputBody].forEach((inputEl) => {
-      if (inputEl) inputEl.classList.remove('is-invalid');
+    [nameInput, emailInput, subjectInput, messageInput].forEach((input) => {
+      if (input) input.classList.remove('is-invalid');
     });
     if (feedbackBox) {
       feedbackBox.style.display = 'none';
       feedbackBox.className = 'contact-feedback-box';
-      feedbackBox.innerHTML = '';
+      feedbackBox.textContent = '';
     }
   }
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (event) => {
-      event.preventDefault(); // Ngăn trình duyệt reload trang
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
       clearErrors();
 
       let isValid = true;
-      const nameVal = inputName ? inputName.value.trim() : '';
-      const emailVal = inputEmail ? inputEmail.value.trim() : '';
-      const subjectVal = inputSubject ? inputSubject.value.trim() : '';
-      const bodyVal = inputBody ? inputBody.value.trim() : '';
+      const nameVal = nameInput ? nameInput.value.trim() : '';
+      const emailVal = emailInput ? emailInput.value.trim() : '';
+      const subjectVal = subjectInput ? subjectInput.value.trim() : '';
+      const messageVal = messageInput ? messageInput.value.trim() : '';
 
-      // 1. Kiểm tra họ tên
+      // 1. Kiểm tra Họ và Tên
       if (nameVal === '') {
-        errName.textContent = '⚠ Vui lòng nhập họ và tên của bạn.';
-        inputName.classList.add('is-invalid');
+        errName.textContent = 'Vui lòng nhập họ và tên của bạn.';
+        nameInput.classList.add('is-invalid');
         isValid = false;
       } else if (nameVal.length < 2) {
-        errName.textContent = '⚠ Họ và tên phải có tối thiểu 2 ký tự.';
-        inputName.classList.add('is-invalid');
+        errName.textContent = 'Họ và tên phải có tối thiểu 2 ký tự.';
+        nameInput.classList.add('is-invalid');
         isValid = false;
       }
 
-      // 2. Kiểm tra email
+      // 2. Kiểm tra Email
       if (emailVal === '') {
-        errEmail.textContent = '⚠ Vui lòng nhập địa chỉ email.';
-        inputEmail.classList.add('is-invalid');
+        errEmail.textContent = 'Vui lòng nhập địa chỉ email.';
+        emailInput.classList.add('is-invalid');
         isValid = false;
       } else if (!isValidEmail(emailVal)) {
-        errEmail.textContent = '⚠ Định dạng email không hợp lệ (Ví dụ: name@example.com).';
-        inputEmail.classList.add('is-invalid');
+        errEmail.textContent = 'Định dạng email không hợp lệ (Ví dụ: name@example.com).';
+        emailInput.classList.add('is-invalid');
         isValid = false;
       }
 
-      // 3. Kiểm tra tiêu đề
+      // 3. Kiểm tra Tiêu đề
       if (subjectVal === '') {
-        errSubject.textContent = '⚠ Vui lòng nhập tiêu đề liên hệ.';
-        inputSubject.classList.add('is-invalid');
+        errSubject.textContent = 'Vui lòng nhập tiêu đề liên hệ.';
+        subjectInput.classList.add('is-invalid');
         isValid = false;
       }
 
-      // 4. Kiểm tra nội dung tin nhắn
-      if (bodyVal === '') {
-        errBody.textContent = '⚠ Vui lòng nhập nội dung lời nhắn.';
-        inputBody.classList.add('is-invalid');
+      // 4. Kiểm tra Lời nhắn
+      if (messageVal === '') {
+        errMessage.textContent = 'Vui lòng nhập nội dung tin nhắn.';
+        messageInput.classList.add('is-invalid');
         isValid = false;
-      } else if (bodyVal.length < 10) {
-        errBody.textContent = '⚠ Nội dung lời nhắn quá ngắn (tối thiểu 10 ký tự).';
-        inputBody.classList.add('is-invalid');
+      } else if (messageVal.length < 10) {
+        errMessage.textContent = 'Nội dung tin nhắn cần tối thiểu 10 ký tự.';
+        messageInput.classList.add('is-invalid');
         isValid = false;
       }
 
-      // Nếu có lỗi -> focus vào ô lỗi đầu tiên
       if (!isValid) {
-        const firstInvalid = contactForm.querySelector('.is-invalid');
-        if (firstInvalid) firstInvalid.focus();
-        showToast('⚠ BIỂU MẪU CÓ LỖI, VUI LÒNG KIỂM TRA LẠI!');
+        // Focus vào ô lỗi đầu tiên
+        const firstErr = contactForm.querySelector('.is-invalid');
+        if (firstErr) firstErr.focus();
         return;
       }
 
-      // NẾU HỢP LỆ (VALID SUCCESS)
-      showToast('✓ GỬI THÀNH CÔNG! CẢM ƠN BẠN ĐÃ LIÊN HỆ.');
+      // Submit thành công
       if (feedbackBox) {
         feedbackBox.style.display = 'block';
+        feedbackBox.className = 'contact-feedback-box success';
         feedbackBox.innerHTML = `
-          <strong>[TRANSMISSION SUCCESSFUL]</strong><br>
-          Cảm ơn bạn <strong>${escapeHtml(nameVal)}</strong> (${escapeHtml(emailVal)}) đã gửi tin nhắn!<br>
-          Tiêu đề: <em>"${escapeHtml(subjectVal)}"</em><br>
-          <span style="color: var(--muted); font-size: 10.5px;">Phúc đã nhận được thông tin và sẽ phản hồi sớm nhất có thể. Chúc bạn một ngày tốt lành!</span>
+          <strong>✓ Gửi tin nhắn thành công!</strong><br>
+          Cảm ơn bạn <strong>${escapeHtml(nameVal)}</strong> đã liên hệ. Phúc đã nhận được thông tin và sẽ phản hồi qua email <em>${escapeHtml(emailVal)}</em> sớm nhất có thể!
         `;
       }
 
-      // Reset form
       contactForm.reset();
     });
 
-    // Reset button event
-    contactForm.addEventListener('reset', () => {
-      clearErrors();
-      showToast('ĐÃ LÀM MỚI BIỂU MẪU LIÊN HỆ');
-    });
-
-    // Real-time input clearing
-    [inputName, inputEmail, inputSubject, inputBody].forEach((inputEl) => {
-      if (!inputEl) return;
-      inputEl.addEventListener('input', () => {
-        inputEl.classList.remove('is-invalid');
-        const errSpan = inputEl.parentElement.querySelector('.error-msg');
-        if (errSpan) errSpan.textContent = '';
+    // Real-time error removal
+    [nameInput, emailInput, subjectInput, messageInput].forEach((input) => {
+      if (!input) return;
+      input.addEventListener('input', () => {
+        input.classList.remove('is-invalid');
+        const errEl = input.parentElement.querySelector('.error-text');
+        if (errEl) errEl.textContent = '';
       });
     });
   }
 
-  // Helper escape HTML to prevent XSS
   function escapeHtml(str) {
     return str
       .replace(/&/g, '&amp;')
@@ -290,7 +245,4 @@
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#039;');
   }
-
-  // Initial Boot Ready
-  showToast('PHUC.OS v1.2 READY // UTH 2026');
-})();
+});
